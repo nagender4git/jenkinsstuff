@@ -23,7 +23,7 @@ node('JenkinsNode') {
     
         stage('Clean Workspace'){
             echo 'Cleaning everything in the workspace directory:  ${env.WORKSPACE}'
-           // cleanWs()
+           cleanWs()
         }
          stage ('Tools Set up'){
              echo 'Tools set up'
