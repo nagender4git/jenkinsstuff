@@ -48,6 +48,7 @@ node('master') {
                     echo "M2_HOME = ${M2_HOME}"
 					pwd
 					m3 clear war
+					echo 'After Clear'
 			    '''
 				
 			}
