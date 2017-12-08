@@ -28,7 +28,7 @@ node {
          
         
           stage('Check out'){
-              git branch: 'master', url: 'https://github.com/nagender4git/nagacode.git'
+              git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
               sh 'pwd'
               
             echo 'Check out'
