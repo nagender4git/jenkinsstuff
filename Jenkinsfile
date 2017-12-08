@@ -1,8 +1,8 @@
 node('JenkinsNode') {
 	def workspace = pwd()
 	echo workspace
-  	//def props = readFile '/properties/sample.properties'
-	//echo props['name']
+  	def props = readFile '/properties/sample.properties'
+	echo props['name']
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
     def EMS_TAG_VERSION = '2.2'
     def EMS_USER = 'root'
@@ -31,9 +31,8 @@ node('JenkinsNode') {
 			
          }
 		 stage('Check out'){
-          //    git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
-          //    sh 'pwd'
-              
+              git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
+          
             echo 'Check out'
         }
         
@@ -42,7 +41,7 @@ node('JenkinsNode') {
               export M2_HOME=/home/ec2-user/apache-maven-3.2.1
 			  export M2=$M2_HOME/bin
 			  export PATH=$M2:$PATH
-		   //   mvn clean package
+			mvn clean package
 		   
 		   '''
 		
