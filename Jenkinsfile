@@ -35,10 +35,10 @@ node {
         }
         
           stage('Build'){
-              sh 'cd /var/lib/jenkins/workspace/CompleteFlow/'
+           //   sh 'cd /var/lib/jenkins/workspace/CompleteFlow/'
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
               
-              
+              mvn build
             echo 'Build'
         }
         
