@@ -38,7 +38,10 @@ node('master') {
            //   sh 'cd /var/lib/jenkins/workspace/CompleteFlow/'
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
               
-             sh 'maven build test'
+			  withMaven(maven: 'm3') {
+				mvn build
+			}
+			
             echo 'Build'
         }
         
