@@ -1,5 +1,5 @@
 node('JenkinsNode') {
-  cleanWs()
+
 	def workspace = pwd()
 	echo workspace
 //  	def props = readFile '/properties/sample.properties'
