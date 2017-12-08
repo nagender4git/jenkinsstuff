@@ -28,7 +28,7 @@ node {
          
         
           stage('Check out'){
-              git branch: 'ks-xmp', credentialsId: '02392ab3-638c-4d02-bb90-7194b2c63e12', url: 'http://sboppana@stash.arrisi.com/scm/cbo/ems.git'
+              git branch: 'master', url: 'https://github.com/nagender4git/nagacode.git'
               sh 'pwd'
               
             echo 'Check out'
