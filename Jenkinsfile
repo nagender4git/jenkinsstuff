@@ -32,8 +32,7 @@ node('JenkinsNode') {
 			
          }
 		 stage('Check out'){
-		      git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
-              git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
+		      git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
           
             echo 'Check out'
         }
@@ -44,7 +43,7 @@ node('JenkinsNode') {
 			  export M2=$M2_HOME/bin
 			  export PATH=$M2:$PATH
 			mvn clean package
-		   
+		   archive '*.war'
 		   '''
 		
 }	 
