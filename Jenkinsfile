@@ -43,9 +43,9 @@ node('JenkinsNode') {
 			  export M2=$M2_HOME/bin
 			  export PATH=$M2:$PATH
 			mvn clean package
-		   archive '*.war'
+		  
 		   '''
-		
+		archive '*.war'
 }	 
         
         
