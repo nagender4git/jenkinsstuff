@@ -1,6 +1,6 @@
 node('JenkinsNode') {
 	def workspace = pwd()
-	
+	echo workspace
   	def props = readFile '/properties/sample.properties'
 	echo props['name']
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
@@ -23,7 +23,7 @@ node('JenkinsNode') {
     
         stage('Clean Workspace'){
             echo 'Cleaning everything in the workspace directory:  ${env.WORKSPACE}'
-            cleanWs()
+           // cleanWs()
         }
          stage ('Tools Set up'){
              echo 'Tools set up'
