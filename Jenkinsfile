@@ -47,9 +47,8 @@ node('master') {
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
 					pwd
-					set PATH = ${PATH}:${M2_HOME}
 					echo "${PATH}"
-					maven clean war
+					/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/m3/maven clean war
 					echo 'After Clear'
 			    '''
 				
