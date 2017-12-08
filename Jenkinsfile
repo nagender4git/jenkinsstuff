@@ -48,7 +48,7 @@ node('master') {
                     echo "M2_HOME = ${M2_HOME}"
 					pwd
 					echo "${PATH}"
-					/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/m3 --version
+					sudo /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/m3 --version
 					echo 'After Clear'
 			    '''
 				
