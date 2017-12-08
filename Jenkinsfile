@@ -23,6 +23,10 @@ node('master') {
         }
          stage ('Tools Set up'){
              echo 'Tools set up'
+			 tools { 
+				maven 'm3' 
+				
+			}
          }
              
          
@@ -38,8 +42,10 @@ node('master') {
            //   sh 'cd /var/lib/jenkins/workspace/CompleteFlow/'
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
               
-			  withMaven(maven: 'm3') {
-			 sh 'echo $MAVEN_HOME"
+			 sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+			    '''
 			}
 	
         }
