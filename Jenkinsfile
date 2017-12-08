@@ -39,7 +39,7 @@ node('master') {
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
               
 			  withMaven(maven: 'm3') {
-			  mvn -B 
+			 sh 'echo $MAVEN_HOME"
 			}
 	
         }
