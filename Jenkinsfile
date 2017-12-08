@@ -39,7 +39,13 @@ node('JenkinsNode') {
           stage('Build'){
            //   sh 'cd /var/lib/jenkins/workspace/CompleteFlow/'
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
-           sh 'mvn clean package'
+           sh '''
+              export M2_HOME=/home/ec2-user/apache-maven-3.2.1
+			  export M2=$M2_HOME/bin
+			  export PATH=$M2:$PATH
+		      mvn clean package
+		   
+		   '''
 		
 }	
         
