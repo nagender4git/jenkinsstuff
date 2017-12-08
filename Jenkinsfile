@@ -39,18 +39,12 @@ node('master') {
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
               
 			  withMaven(maven: 'm3') {
-				mvn build
-			}
 			
-            echo 'Build'
+			}
+	
         }
         
-          stage('SA_DEPLOY'){
-            echo EMS_INGESTION_SERVICE_HOST  
-            echo '1 Call Services Deployement Function'
-            echo '2 Call epg cloud publish docker images'
-            echo '3 Call ems dev deploy compose'
-        }
+  
         
  
     
