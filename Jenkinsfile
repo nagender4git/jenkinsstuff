@@ -1,7 +1,8 @@
 node('JenkinsNode') {
 	def workspace = pwd()
-	echo props['name']
+	
   	def props = readProperties  file: '{workspace}/properties/sample.properties'
+	echo props['name']
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
     def EMS_TAG_VERSION = '2.2'
     def EMS_USER = 'root'
