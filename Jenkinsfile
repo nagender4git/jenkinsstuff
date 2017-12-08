@@ -24,7 +24,7 @@ node('master') {
          stage ('Tools Set up'){
              echo 'Tools set up'
 			 tools { 
-				maven 'm3' 
+				maven 'Maven 3.5.0' 
 				
 			}
          }
