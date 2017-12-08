@@ -1,4 +1,8 @@
 node('master') {
+ tools { 
+				maven 'm3' 
+				
+			}
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
     def EMS_TAG_VERSION = '2.2'
     def EMS_USER = 'root'
@@ -23,10 +27,7 @@ node('master') {
         }
          stage ('Tools Set up'){
              echo 'Tools set up'
-			 tools { 
-				maven 'maven' 
-				
-			}
+			
          }
              
          
