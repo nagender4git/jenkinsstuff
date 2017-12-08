@@ -1,4 +1,5 @@
 node('JenkinsNode') {
+  cleanWs()
 	def workspace = pwd()
 	echo workspace
 //  	def props = readFile '/properties/sample.properties'
@@ -23,7 +24,7 @@ node('JenkinsNode') {
     
         stage('Clean Workspace'){
             echo 'Cleaning everything in the workspace directory:  ${env.WORKSPACE}'
-           cleanWs()
+         //  cleanWs()
         }
          stage ('Tools Set up'){
              echo 'Tools set up'
@@ -45,12 +46,7 @@ node('JenkinsNode') {
 		   
 		   '''
 		
-}	   stage('SA_DEPLOY'){
-            echo EMS_INGESTION_SERVICE_HOST  
-            echo '1 Call Services Deployement Function'
-            echo '2 Call epg cloud publish docker images'
-            echo '3 Call ems dev deploy compose'
-        }
+}	 
         
         
   
