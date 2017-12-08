@@ -1,4 +1,4 @@
-node('master') {
+node('JenkinsNode') {
 
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
     def EMS_TAG_VERSION = '2.2'
@@ -40,18 +40,7 @@ node('master') {
            //   sh 'cd /var/lib/jenkins/workspace/CompleteFlow/'
          //     sh '/usr/share/maven/bin/mvn -f epg/pom.xml -T 2C clean install site -e'
            
-		withMaven(maven: 'm3') {
-				// some block
-		   
-			 sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-					pwd
-					echo "${PATH}"
-					m3 --version
-			    '''
-				
-			}
+		
 }	
         
         
