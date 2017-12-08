@@ -47,7 +47,7 @@ node('master') {
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
 					pwd
-					m3 clear war
+					maven clean war
 					echo 'After Clear'
 			    '''
 				
