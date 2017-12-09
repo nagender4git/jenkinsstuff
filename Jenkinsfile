@@ -17,8 +17,7 @@ node('JenkinsNode') {
 	
 			//properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: 'properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 		//	properties([parameters([file(description: 'Paraametersset', name: 'properties/sample.properties')]), pipelineTriggers([])])
-            echo params[name] 
-			echo params[yourname]
+           
 			fileExists 'resources/sample.properties'
 		
 		}
