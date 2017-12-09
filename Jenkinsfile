@@ -19,7 +19,7 @@ node('JenkinsNode') {
 		//	properties([parameters([file(description: 'Paraametersset', name: 'properties/sample.properties')]), pipelineTriggers([])])
            
 			def retval = fileExists 'resources/sample.properties'
-			echo retval
+			println retval
 		
 		}
           
