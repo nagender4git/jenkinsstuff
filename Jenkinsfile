@@ -18,7 +18,7 @@ node('JenkinsNode') {
 			//properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: 'properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 		//	properties([parameters([file(description: 'Paraametersset', name: 'properties/sample.properties')]), pipelineTriggers([])])
            
-			def retval = fileExists 'resources/sample.properties'
+			def retval = fileExists '/home/ec2-user/workspace/full-flow/resources/properties'
 			println retval
 		
 		}
