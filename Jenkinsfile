@@ -22,8 +22,8 @@ node('JenkinsNode') {
 			println retval
 			def myFile = readFile '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties'
 			println myFile
-			properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: myFile, secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
-			
+			properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: myFile , secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
+			print params.name
 		}
           
 		 
