@@ -31,12 +31,15 @@ node('JenkinsNode') {
 				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
 			}
 			
-			 def props = readFile '/home/ec2-user/sourcecode/properties/sample.properties'
-			echo props['name']
+			
 			//dir("/home/ec2-user/workspace/full-flow/")
 			sh ' cd /home/ec2-user/workspace/full-flow/'
         }
-         stage ('Tools Set up'){
+          def props = readFile '/home/ec2-user/sourcecode/properties/sample.properties'
+			echo props['name']
+		 
+		 
+		 stage ('Tools Set up'){
              echo 'Tools set up'
 			 
 			
