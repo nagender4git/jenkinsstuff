@@ -7,7 +7,7 @@ node('JenkinsNode') {
         stage('Clean Workspace'){
            // echo 'Cleaning everything in the workspace directory:  ${env.WORKSPACE}'
            cleanWs()
-		   ws(${workspace}'/resources') {
+		   ws(workspace'/resources') {
 				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
 			}
 			
@@ -20,7 +20,7 @@ node('JenkinsNode') {
 			
          }
 		 stage('Source Code Check out'){
-		// ws(${workspace}'/sourcecode') {
+		// ws(workspace'/sourcecode') {
 		      git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
 		//	  }
           
