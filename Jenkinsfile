@@ -11,8 +11,10 @@ node('JenkinsNode') {
 		   ws(workspace+'/resources') {
 				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
 			}
-			properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: workspace+'resources/properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
-
+			pwd()
+			properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: 'properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
+			echo env.name
+			echo env.myname
 		}
           
 		 
@@ -27,8 +29,7 @@ node('JenkinsNode') {
 			  
 			
             echo 'Check out'
-			echo env.name
-			echo env.myname
+		
         }
         }
           stage('Build'){
