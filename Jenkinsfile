@@ -20,7 +20,7 @@ node('JenkinsNode') {
 			
          }
 		 stage('Source Code Check out'){
-		// ws('${workspace}/sourcecode') {
+		// ws(${workspace}'/sourcecode') {
 		      git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
 		//	  }
           
