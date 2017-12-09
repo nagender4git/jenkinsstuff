@@ -24,6 +24,9 @@ node('JenkinsNode') {
 			println myFile
 			properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: myFile , secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 			print params.myname
+			print params.name
+			print env.name
+			print env.myname
 		}
           
 		 
