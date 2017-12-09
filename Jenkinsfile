@@ -32,7 +32,7 @@ node('JenkinsNode') {
               export M2_HOME=/home/ec2-user/apache-maven-3.2.1
 			  export M2=$M2_HOME/bin
 			  export PATH=$M2:$PATH
-			mvn clean package
+			mvn -f resources/pom.xml clean package
 		  
 		   '''
 		
