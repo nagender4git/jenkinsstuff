@@ -24,7 +24,7 @@ node('JenkinsNode') {
 			println myFile
 		//	properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties' , secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 			
-			//	properties([parameters([file(description: 'Paraametersset', name: '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties')]), pipelineTriggers([])])
+				properties([parameters([file(description: 'Paraametersset', name: '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties')]), pipelineTriggers([])])
 			
 			print params.myname
 			print params.name
@@ -48,6 +48,10 @@ node('JenkinsNode') {
         }
         }
           stage('Build'){
+		  		print params.myname
+			print params.name
+			print env.name
+			print env.myname
            sh '''
               export M2_HOME=/home/ec2-user/apache-maven-3.2.1
 			  export M2=$M2_HOME/bin
