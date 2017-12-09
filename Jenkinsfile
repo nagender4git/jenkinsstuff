@@ -5,8 +5,7 @@ node('JenkinsNode') {
         echo env.BRANCH_NAME
    
 	echo workspace
- 	//def props = readFile '/home/ec2-user/sourcecode/properties/sample.properties'
-	//echo props['name']
+   
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
     def EMS_TAG_VERSION = '2.2'
     def EMS_USER = 'root'
@@ -31,6 +30,9 @@ node('JenkinsNode') {
 		   ws('sourcecode') {
 				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
 			}
+			
+			 def props = readFile '/home/ec2-user/sourcecode/properties/sample.properties'
+			echo props['name']
 			//dir("/home/ec2-user/workspace/full-flow/")
 			sh ' cd /home/ec2-user/workspace/full-flow/'
         }
