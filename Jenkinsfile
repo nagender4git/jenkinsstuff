@@ -2,11 +2,11 @@ node('JenkinsNode') {
 
 	def workspace = pwd()
 
-        echo env.name
+        echo env.BRANCH_NAME
    
 	echo workspace
-//  	def props = readFile '/properties/sample.properties'
-	//echo props['name']
+ 	def props = readFile '/properties/sample.properties'
+	echo props['name']
     def EMS_INGESTION_SERVICE_HOST = '10.152.140.22'
     def EMS_TAG_VERSION = '2.2'
     def EMS_USER = 'root'
@@ -24,16 +24,20 @@ node('JenkinsNode') {
     def PG_PORT_5432_TCP_ADDR = '10.152.143.34'
     def PG_PORT_5432_TCP_PORT = '5432'
 
-    
+        
         stage('Clean Workspace'){
-            echo 'Cleaning everything in the workspace directory:  ${env.WORKSPACE}'
-         //  cleanWs()
+           // echo 'Cleaning everything in the workspace directory:  ${env.WORKSPACE}'
+           cleanWs()
+		   ws('sourcecode') {
+				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
+			}
+			dir("/home/ec2-user/workspace/full-flow/")
         }
          stage ('Tools Set up'){
              echo 'Tools set up'
 			 
-		}	
-         }node('JenkinsNode') {
+			
+         }
 		 stage('Check out'){
 		      git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
           
