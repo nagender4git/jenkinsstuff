@@ -27,7 +27,7 @@ node('JenkinsNode') {
             echo fileExists workspace+'/resources/properties/system.properties'
             echo 'Check out'
         }
-        
+        }
           stage('Build'){
            sh '''
               export M2_HOME=/home/ec2-user/apache-maven-3.2.1
