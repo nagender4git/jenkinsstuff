@@ -1,9 +1,9 @@
 node('JenkinsNode') {
 
 	def workspace = pwd()
-	for(e in env){
-        echo e + " is " + ${e}
-    }
+
+        echo env.BRANCH_NAME
+   
 	echo workspace
 //  	def props = readFile '/properties/sample.properties'
 	//echo props['name']
