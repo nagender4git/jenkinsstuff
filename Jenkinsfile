@@ -1,6 +1,9 @@
 node('JenkinsNode') {
 
 	def workspace = pwd()
+	for(e in env){
+        echo e + " is " + ${e}
+    }
 	echo workspace
 //  	def props = readFile '/properties/sample.properties'
 	//echo props['name']
@@ -45,7 +48,7 @@ node('JenkinsNode') {
 			mvn clean package
 		  
 		   '''
-		archive '*.war'
+		
 }	 
         
         
