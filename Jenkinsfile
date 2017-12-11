@@ -17,12 +17,12 @@ node('JenkinsNode') {
 				
 			sh '''
 			   pwd
-			   cd properties 
+			  
 			   set -a 
-				. ./prop.txt
+				. ./resources/properties/prop.txt
 					set +a
 					echo $name
-					cd ..
+				
 					'''
 	
 		//	properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: 'properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
