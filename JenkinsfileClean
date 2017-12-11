@@ -5,6 +5,8 @@ node('master') {
 	def workspace = pwd()
 	echo workspace
 	def testVariable = "Printing in Shell"
+	def mvnHome
+    def jdk
 	
    
       
@@ -18,9 +20,9 @@ node('master') {
             mvnHome = tool 'm3'
 			
             	sh "${mvnHome}/bin/mvn -v"
-				sh "export M2_HOME=${mvnHome}"
-			 	sh " export M2=$M2_HOME/bin"
-			 	sh " export PATH=$M2:$PATH"
+				sh "export M3_HOME=${mvnHome}"
+			 	sh " export M3=$M2_HOME/bin"
+			 	sh " export PATH=$M3:$PATH"
 		
             jdk = tool name: 'jdk8'
             env.JAVA_HOME = "${jdk}"
