@@ -1,0 +1,61 @@
+#!/usr/bin/env groovy
+
+node('master') {
+
+	def workspace = pwd()
+	echo workspace
+	def testVariable = "Printing in Shell"
+	
+   
+      
+        stage('Clean Workspace'){           
+           cleanWs()
+	
+		} 
+          
+		 
+		 stage ('Tools Set up'){
+            mvnHome = tool 'm3'
+            sh "${mvnHome}/bin/mvn -v"
+            jdk = tool name: 'jdk8'
+            env.JAVA_HOME = "${jdk}"
+            echo "jdk installation path is: ${jdk}"
+            print "Java home is: ${env.JAVA_HOME}"
+			 
+			
+         }
+		 stage('Source Code Check out'){
+		
+ 		ws(workspace+'/resources') {
+				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
+			}
+		 
+		 ws(workspace+'/sourcecode') {
+		      git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/nagacode.git'
+			  
+			
+            echo 'Check out'
+		
+        }
+        }
+          stage('Build'){
+		  		print params.myname
+			print params.name
+			print env.name
+			print env.myname
+           sh '''
+              export M2_HOME=/home/ec2-user/apache-maven-3.2.1
+			  export M2=$M2_HOME/bin
+			  export PATH=$M2:$PATH
+			mvn -f sourcecode/pom.xml clean package
+		  
+		   '''
+		
+		}	 
+        
+        
+  
+        
+ 
+    
+}
