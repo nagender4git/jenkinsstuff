@@ -4,6 +4,7 @@ node('JenkinsNode') {
 
 	def workspace = pwd()
 	echo workspace
+	def testVariable = "Printing in Shell"
 	
    
       
@@ -22,6 +23,7 @@ node('JenkinsNode') {
 				. ./resources/properties/prop.txt
 					set +a
 					echo $name
+					echo ${testVariable}
 				
 					'''
 	
