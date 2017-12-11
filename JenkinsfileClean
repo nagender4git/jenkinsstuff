@@ -16,11 +16,11 @@ node('master') {
 		 
 		 stage ('Tools Set up'){
             mvnHome = tool 'm3'
-			sh '''
-            ${mvnHome}/bin/mvn -v
-			export M2_HOME=${mvnHome}
-			  export M2=$M2_HOME/bin
-			  export PATH=$M2:$PATH
+			
+            	sh ""${mvnHome}/bin/mvn -v"
+				sh ""export M2_HOME=${mvnHome}"
+			 	sh "" export M2=$M2_HOME/bin"
+			 	sh "" export PATH=$M2:$PATH"
 			
 			'''
             jdk = tool name: 'jdk8'
