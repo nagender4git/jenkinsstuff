@@ -23,7 +23,7 @@ node('JenkinsNode') {
 				. ./resources/properties/prop.txt
 					set +a
 					echo $name
-					echo ${testVariable}
+					echo $testVariable
 				
 					'''
 	
