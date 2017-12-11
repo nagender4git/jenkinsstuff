@@ -14,6 +14,15 @@ node('JenkinsNode') {
 				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
 			}
 			pwd()
+				
+			sh '''
+			   cd properties 
+			   set -a 
+				. ./prop.txt
+					set +a
+					echo $name
+					cd ..
+					'''
 	
 		//	properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: 'properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 		//	properties([parameters([file(description: 'Paraametersset', name: 'properties/sample.properties')]), pipelineTriggers([])])
@@ -30,12 +39,7 @@ node('JenkinsNode') {
 			//print params.name
 			//print env.name
 			//print env.myname
-			sh '''
-			   set -a 
-				. ./properties/prop.txt
-					set +a
-					echo $name
-					'''
+		
 		} 
           
 		 
