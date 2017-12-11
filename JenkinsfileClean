@@ -42,7 +42,7 @@ node('master') {
 		  	
            sh '''
               env
-		      mvn -f sourcecode/pom.xml clean package
+		      ${mvnHome}/bin/mvn -f sourcecode/pom.xml clean package
 		  
 		   '''
 		
