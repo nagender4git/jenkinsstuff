@@ -48,7 +48,7 @@ node('master') {
         }
           stage('Build'){
 		  	
-          
+              sj "env"
 			  sh "${mvnHome}/bin/mvn -f sourcecode/pom.xml clean package"
 		
 		
