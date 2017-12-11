@@ -21,6 +21,10 @@ node('master') {
             env.JAVA_HOME = "${jdk}"
             echo "jdk installation path is: ${jdk}"
             print "Java home is: ${env.JAVA_HOME}"
+			
+			export M2_HOME=${mvnHome}
+			  export M2=$M2_HOME/bin
+			  export PATH=$M2:$PATH
 			 
 			
          }
@@ -42,7 +46,7 @@ node('master') {
 		  	
            sh '''
               env
-		      ${mvnHome}/mvn -f sourcecode/pom.xml clean package
+		      mvn -f sourcecode/pom.xml clean package
 		  
 		   '''
 		
