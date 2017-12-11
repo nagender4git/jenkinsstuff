@@ -6,7 +6,7 @@ node('master') {
 	echo workspace
 	def testVariable = "Printing in Shell"
 	def mvnHome
-    def jdk
+    
 	
    
       
@@ -20,9 +20,8 @@ node('master') {
             mvnHome = tool 'm3'
 			
             	sh "${mvnHome}/bin/mvn -v"
-				sh "export M3_HOME=${mvnHome}"
-			 	sh " export M3=$M3_HOME/bin"
-			 	sh " export PATH=$M3:$PATH"
+			
+			 	
 		
             jdk = tool name: 'jdk8'
             env.JAVA_HOME = "${jdk}"
@@ -51,7 +50,7 @@ node('master') {
 		  	
            sh '''
               env
-		      mvn -f sourcecode/pom.xml clean package
+		      ${mvnHome}/bin/mvn -f sourcecode/pom.xml clean package
 		  
 		   '''
 		
