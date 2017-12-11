@@ -35,7 +35,8 @@ node('JenkinsNode') {
 				. ./properties/prop.txt
 					set +a
 					echo $name
-		}
+					'''
+		} 
           
 		 
 		 stage ('Tools Set up'){
