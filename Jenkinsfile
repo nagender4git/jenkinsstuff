@@ -18,18 +18,23 @@ node('JenkinsNode') {
 		//	properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: false, propertiesFilePath: 'properties/sample.properties', secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 		//	properties([parameters([file(description: 'Paraametersset', name: 'properties/sample.properties')]), pipelineTriggers([])])
            
-			def retval = fileExists '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties'
-			println retval
-			def myFile = readFile '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties'
-			println myFile
-			properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: true, propertiesFilePath: '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties' , secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
+			//def retval = fileExists '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties'
+			//println retval
+			//def myFile = readFile '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties'
+			//println myFile
+			//properties([[$class: 'EnvInjectJobProperty', info: [loadFilesFromMaster: true, propertiesFilePath: '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties' , secureGroovyScript: [classpath: [], sandbox: false, script: '']], keepBuildVariables: true, keepJenkinsSystemVariables: true, on: true], pipelineTriggers([])])
 			
 			//properties([parameters([file(description: 'Paraametersset', name: '/home/ec2-user/workspace/full-flow/resources/properties/sample.properties')]), pipelineTriggers([])])
 			
-			print params.myname
-			print params.name
-			print env.name
-			print env.myname
+			//print params.myname
+			//print params.name
+			//print env.name
+			//print env.myname
+			sh '''
+			   set -a 
+				. ./properties/prop.txt
+					set +a
+					echo $name
 		}
           
 		 
