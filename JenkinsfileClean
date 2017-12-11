@@ -19,13 +19,12 @@ node('master') {
 		 stage ('Tools Set up'){
             mvnHome = tool 'm3'
 			
-            	sh "${mvnHome}/bin/mvn -v"
-				
-			
-			 	
-		
-            jdk = tool name: 'jdk8'
+            sh "${mvnHome}/bin/mvn -v"
+			jdk = tool name: 'jdk8'
             env.JAVA_HOME = "${jdk}"
+			sh '''
+			   export PATH=$JAVA_HOME/bin:$PATH
+			  '''
             echo "jdk installation path is: ${jdk}"
             print "Java home is: ${env.JAVA_HOME}"
 			
