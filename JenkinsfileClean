@@ -18,8 +18,14 @@ node('master') {
 		 
 		 stage ('Tools Set up'){
             mvnHome = tool 'm3'
-	
-		}
+			
+            sh "${mvnHome}/bin/mvn -v"
+			
+			
+			
+		 
+			
+         }
 		 stage('Source Code Check out'){
 		
  		ws(workspace+'/resources') {
@@ -37,13 +43,13 @@ node('master') {
           stage('Build'){
 		  	
               
+			  sh "${mvnHome}/bin/mvn -f sourcecode/pom.xml clean package"
 			  sh '''
-			          ${mvnHome}/bin/mvn -f sourcecode/pom.xml clean package
-					  set -a 
-					. ./resources/properties/prop.txt
+			  set -a 
+				. ./resources/properties/prop.txt
 					set +a
 					echo $name
-				'''
+					'''
 		
 		
 		}	 
