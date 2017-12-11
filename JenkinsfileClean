@@ -21,7 +21,7 @@ node('master') {
 			
             	sh "${mvnHome}/bin/mvn -v"
 				sh "export M3_HOME=${mvnHome}"
-			 	sh " export M3=$M2_HOME/bin"
+			 	sh " export M3=$M3_HOME/bin"
 			 	sh " export PATH=$M3:$PATH"
 		
             jdk = tool name: 'jdk8'
