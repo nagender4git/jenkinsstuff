@@ -24,6 +24,7 @@ node('JenkinsNode') {
 					set +a
 					echo $name
 					echo $testVariable
+					env 
 				
 					'''
 	
