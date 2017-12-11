@@ -13,9 +13,10 @@ node('JenkinsNode') {
 		   ws(workspace+'/resources') {
 				 git credentialsId: '00af7364-a9f5-47c3-b4f9-eb5f727e1aa6', url: 'https://github.com/nagender4git/jenkinsstuff.git'
 			}
-			pwd()
+			
 				
 			sh '''
+			   pwd
 			   cd properties 
 			   set -a 
 				. ./prop.txt
