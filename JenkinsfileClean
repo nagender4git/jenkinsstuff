@@ -56,7 +56,7 @@ node('master') {
 		}	
         
         
-  stage('Build'){
+  stage('deploy'){
      sh "env"
   }
         
