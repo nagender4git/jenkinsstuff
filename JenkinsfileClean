@@ -49,7 +49,7 @@ node('master') {
 				. ./resources/properties/prop.txt
 					set +a
 					echo $name
-					env.testingName=$name
+					export testingName=$name
 					'''
 		
 		
