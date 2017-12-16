@@ -57,6 +57,7 @@ node('master') {
         
         
   stage('deploy'){
+  pwd()
      sh "./abc.sh"
   }
         
