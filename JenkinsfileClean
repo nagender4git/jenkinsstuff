@@ -57,7 +57,7 @@ node('master') {
         
         
   stage('deploy'){
-     sh "env"
+     sh "abc.sh"
   }
         
  
